@@ -65,11 +65,11 @@ def has_vul(pkg_vuls, vul_name):
     return False
 
 
-def get_vul_key(vul: dict):
+def get_vul_sort_key(vul: dict):
     return vul["name"]
 
 
-def get_pkg_key(pkg: dict):
+def get_pkg_sort_key(pkg: dict):
     return pkg["name"]
 
 
@@ -84,12 +84,12 @@ def get_owasp_packages(json_data: dict):
                 if package is None:
                     package = {"name": package_name, "vulnerabilities": []}
                     packages.append(package)
-                    packages.sort(key=get_pkg_key)
+                    packages.sort(key=get_pkg_sort_key)
                 for vul in dep["vulnerabilities"]:
                     pkg_vuls = package["vulnerabilities"]
                     if not has_vul(pkg_vuls, vul["name"]):
                         pkg_vuls.append({"name": vul["name"]})
-                        pkg_vuls.sort(key=get_vul_key)
+                        pkg_vuls.sort(key=get_vul_sort_key)
     return packages
 
 
@@ -101,14 +101,14 @@ def get_xray_packages(json_data: dict):
         if package is None:
             package = {"name": package_name, "vulnerabilities": []}
             packages.append(package)
-            packages.sort(key=get_pkg_key)
+            packages.sort(key=get_pkg_sort_key)
         if "cves" in vul.keys():
             pkg_vuls = package["vulnerabilities"]
             for cve in vul["cves"]:
                 cve_id = cve["id"]
                 if not has_vul(pkg_vuls, cve_id):
                     pkg_vuls.append({"name": cve_id})
-                    pkg_vuls.sort(key=get_vul_key)
+                    pkg_vuls.sort(key=get_vul_sort_key)
     return packages
 
 
