@@ -18,34 +18,62 @@ def is_xray_scan(json_data):
 
 def get_package(packages, pkg_name):
     for package in packages:
-        if package["package_name"] == pkg_name:
+        if package["name"] == pkg_name:
             return package
     return None
 
 
+def has_vul(pkg_vuls, vul_name):
+    for pkg_vul in pkg_vuls:
+        if pkg_vul["name"] == vul_name:
+            return True
+    return False
+
+
+def get_vul_key(vul):
+    return vul["name"]
+
+
+def get_pkg_key(pkg):
+    return pkg["name"]
+
+
 def get_owasp_packages(json_data):
     packages = []
-    for dependency in json_data["dependencies"]:
-        if "vulnerabilities" in dependency.keys():
-            for pkg in dependency["packages"]:
+    for dep in json_data["dependencies"]:
+        if "vulnerabilities" in dep.keys():
+            for pkg in dep["packages"]:
                 id = pkg["id"].split("/")
                 package_name = id[1] + ":" + id[2]
                 package = get_package(packages, package_name)
                 if package is None:
-                    package = {"package_name": package_name}
+                    package = {"name": package_name, "vulnerabilities": []}
                     packages.append(package)
-
+                    packages.sort(key=get_pkg_key)
+                for vul in dep["vulnerabilities"]:
+                    pkg_vuls = package["vulnerabilities"]
+                    if not has_vul(pkg_vuls, vul["name"]):
+                        pkg_vuls.append({"name": vul["name"]})
+                        pkg_vuls.sort(key=get_vul_key)
     return packages
 
 
 def get_xray_packages(json_data):
     packages = []
-    for vulnerability in json_data["vulnerabilities"]:
-        package_name = vulnerability["impactedPackageName"] + "@" + vulnerability["impactedPackageVersion"]
+    for vul in json_data["vulnerabilities"]:
+        package_name = vul["impactedPackageName"] + "@" + vul["impactedPackageVersion"]
         package = get_package(packages, package_name)
         if package is None:
-            package = {"package_name": package_name}
+            package = {"name": package_name, "vulnerabilities": []}
             packages.append(package)
+            packages.sort(key=get_pkg_key)
+        if "cves" in vul.keys():
+            pkg_vuls = package["vulnerabilities"]
+            for cve in vul["cves"]:
+                cve_id = cve["id"]
+                if not has_vul(pkg_vuls, cve_id):
+                    pkg_vuls.append({"name": cve_id})
+                    pkg_vuls.sort(key=get_vul_key)
     return packages
 
 
