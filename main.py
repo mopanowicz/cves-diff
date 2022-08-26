@@ -16,40 +16,45 @@ def is_xray_scan(json_data):
     return isinstance(json_data, dict) and "vulnerabilities" in json_data.keys()
 
 
-def contains_pkg_name(array, pkg_name):
-    for item in array:
-        if item["pkg_name"] == pkg_name:
-            return True
-    return False
+def get_package(packages, pkg_name):
+    for package in packages:
+        if package["package_name"] == pkg_name:
+            return package
+    return None
 
 
-def get_owasp_cves(json_data):
-    cves = []
+def get_owasp_packages(json_data):
+    packages = []
     for dependency in json_data["dependencies"]:
         if "vulnerabilities" in dependency.keys():
-            for package in dependency["packages"]:
-                pkg_id = package["id"].split("/")
-                pkg_name = pkg_id[1] + ":" + pkg_id[2]
-                if not contains_pkg_name(cves, pkg_name):
-                    cves.append({"pkg_name": pkg_name})
-    return cves
+            for pkg in dependency["packages"]:
+                id = pkg["id"].split("/")
+                package_name = id[1] + ":" + id[2]
+                package = get_package(packages, package_name)
+                if package is None:
+                    package = {"package_name": package_name}
+                    packages.append(package)
+
+    return packages
 
 
-def get_xray_cves(json_data):
-    cves = []
+def get_xray_packages(json_data):
+    packages = []
     for vulnerability in json_data["vulnerabilities"]:
-        pkg_name = vulnerability["impactedPackageName"] + "@" + vulnerability["impactedPackageVersion"]
-        if not contains_pkg_name(cves, pkg_name):
-            cves.append({"pkg_name": pkg_name})
-    return cves
+        package_name = vulnerability["impactedPackageName"] + "@" + vulnerability["impactedPackageVersion"]
+        package = get_package(packages, package_name)
+        if package is None:
+            package = {"package_name": package_name}
+            packages.append(package)
+    return packages
 
 
 def get_package_cves(json_data):
     cves = []
     if is_owasp_scan(json_data):
-        cves = get_owasp_cves(json_data)
+        cves = get_owasp_packages(json_data)
     if is_xray_scan(json_data):
-        cves = get_xray_cves(json_data)
+        cves = get_xray_packages(json_data)
     return cves
 
 
