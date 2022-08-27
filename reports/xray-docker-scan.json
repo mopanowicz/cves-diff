@@ -1,0 +1,1039 @@
+[
+  {
+    "scan_id": "105cfb6d-e23c-4d6a-734c-20c17aaed1ba",
+    "vulnerabilities": [
+      {
+        "cves": [
+          {
+            "cve": "CVE-2022-22968",
+            "cvss_v2_score": "5.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:P/A:N",
+            "cvss_v3_score": "5.3",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          }
+        ],
+        "summary": "In Spring Framework versions 5.3.0 - 5.3.18, 5.2.0 - 5.2.20, and older unsupported versions, the patterns for disallowedFields on a DataBinder are case sensitive which means a field is not effectively protected unless it is listed with both upper and lower case for the first character of the field, including upper and lower case for the first character of all nested fields within the property path.",
+        "severity": "Medium",
+        "components": {
+          "gav://org.springframework:spring-context:5.3.7": {
+            "fixed_versions": [
+              "[5.2.21]",
+              "[5.3.19]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-context:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-context-5.3.7.jar"
+                }
+              ]
+            ]
+          },
+          "gav://org.springframework:spring-web:5.3.7": {
+            "fixed_versions": [
+              "[5.2.21]",
+              "[5.3.19]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+               {
+                  "component_id": "gav://org.springframework:spring-web:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-web-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-207361",
+        "references": [
+          "https://tanzu.vmware.com/security/cve-2022-22968"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-22096",
+            "cvss_v2_score": "4.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:S/C:N/I:P/A:N",
+            "cvss_v3_score": "4.3",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+          }
+        ],
+        "summary": "In Spring Framework versions 5.3.0 - 5.3.10, 5.2.0 - 5.2.17, and older unsupported versions, it is possible for a user to provide malicious input to cause the insertion of additional log entries.",
+        "severity": "Medium",
+        "components": {
+          "gav://org.springframework:spring-core:5.3.7": {
+            "fixed_versions": [
+              "[5.2.18.RELEASE]",
+              "[5.3.12]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-core:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-core-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-189875",
+        "references": [
+          "https://tanzu.vmware.com/security/cve-2021-22096"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-22060",
+            "cvss_v2_score": "4.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:S/C:N/I:P/A:N",
+            "cvss_v3_score": "4.3",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N"
+          }
+        ],
+        "summary": "In Spring Framework versions 5.3.0 - 5.3.13, 5.2.0 - 5.2.18, and older unsupported versions, it is possible for a user to provide malicious input to cause the insertion of additional log entries. This is a follow-up to CVE-2021-22096 that protects against additional types of input and in more places of the Spring Framework codebase.",
+        "severity": "Medium",
+        "components": {
+          "gav://org.springframework:spring-core:5.3.7": {
+            "fixed_versions": [
+              "[5.2.19]",
+              "[5.3.14]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-core:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-core-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-194329",
+        "references": [
+         "https://tanzu.vmware.com/security/cve-2021-22060"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-43797",
+            "cvss_v2_score": "4.3",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:M/Au:N/C:N/I:P/A:N",
+            "cvss_v3_score": "6.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
+          }
+        ],
+        "summary": "Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers \u0026 clients. Netty prior to version 4.1.7.1.Final skips control chars when they are present at the beginning / end of the header name. It should instead fail fast as these are not allowed by the spec and could lead to HTTP request smuggling. Failing to do the validation might cause netty to \"sanitize\" header names before it forward these to another remote system when used as proxy. This remote system can't see the invalid usage anymore, and therefore does not do the validation itself. Users should upgrade to version 4.1.7.1.Final to receive a patch.",
+        "severity": "Medium",
+        "components": {
+          "gav://io.netty:netty-codec-http:4.1.65.Final": {
+            "fixed_versions": [
+              "[4.1.71.Final]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://io.netty:netty-codec-http:4.1.65.Final",
+                  "full_path": "BOOT-INF/lib/netty-codec-http-4.1.65.Final.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-191882",
+        "references": [
+          "https://github.com/netty/netty/security/advisories/GHSA-wx5j-54mm-rqqq",
+          "https://github.com/netty/netty/commit/07aa6b5938a8b6ed7a6586e066400e2643897323"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2022-24823",
+            "cvss_v2_score": "1.9",
+            "cvss_v2_vector": "CVSS:2.0/AV:L/AC:M/Au:N/C:P/I:N/A:N",
+            "cvss_v3_score": "5.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+          }
+        ],
+        "summary": "Netty is an open-source, asynchronous event-driven network application framework. The package `io.netty:netty-codec-http` prior to version 4.1.77.Final contains an insufficient fix for CVE-2021-21290. When Netty's multipart decoders are used local information disclosure can occur via the local system temporary directory if temporary storing uploads on the disk is enabled. This only impacts applications running on Java version 6 and lower. Additionally, this vulnerability impacts code running on Unix-like systems, and very old versions of Mac OSX and Windows as they all share the system temporary directory between all users. Version 4.1.77.Final contains a patch for this vulnerability. As a workaround, specify one's own `java.io.tmpdir` when starting the JVM or use DefaultHttpDataFactory.setBaseDir(...) to set the directory to something that is only readable by the current user.",
+        "severity": "Medium",
+        "components": {
+          "gav://io.netty:netty-common:4.1.65.Final": {
+            "fixed_versions": [
+              "[4.1.77.Final]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://io.netty:netty-common:4.1.65.Final",
+                  "full_path": "BOOT-INF/lib/netty-common-4.1.65.Final.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-209785",
+        "references": [
+          "https://github.com/netty/netty/security/advisories/GHSA-269q-hmxg-m83q",
+          "https://github.com/netty/netty/commit/185f8b2756a36aaa4f973f1a2a025e7d981823f1",
+          "https://github.com/netty/netty/security/advisories/GHSA-5mcr-gq6c-3hq2"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2022-22970",
+            "cvss_v2_score": "3.5",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:M/Au:S/C:N/I:N/A:P",
+            "cvss_v3_score": "5.3",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+          }
+        ],
+        "summary": "In spring framework versions prior to 5.3.20+ , 5.2.22+ and old unsupported versions, applications that handle file uploads are vulnerable to DoS attack if they rely on data binding to set a MultipartFile or javax.servlet.Part to a field in a model object.",
+        "severity": "Medium",
+        "components": {
+          "gav://org.springframework:spring-beans:5.3.7": {
+            "fixed_versions": [
+              "[5.2.22]",
+              "[5.3.20]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-beans:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-beans-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-210279",
+        "references": [
+          "https://tanzu.vmware.com/security/cve-2022-22970"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2022-22965",
+            "cvss_v2_score": "7.5",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:P/I:P/A:P",
+            "cvss_v3_score": "9.8",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "summary": "Spring Framework RCE via Data Binding on JDK 9+ (SpringShell)",
+        "severity": "Critical",
+        "components": {
+          "gav://org.springframework:spring-webflux:5.3.7": {
+            "fixed_versions": [
+              "[5.2.20]",
+              "[5.3.18]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+               },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-webflux:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-webflux-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-201848",
+        "references": [
+          "https://github.com/tweedge/springcore-0day-en"
+        ],
+        "extended_information": {
+          "short_description": "A class loader vulnerability in Spring Web leads to remote code execution when binding a Java Bean.",
+          "full_description": "A vulnerability in Spring Web was leaked as a 0-day on Twitter, and later dubbed \"SpringShell\"\r\n\r\nThe vulnerability allows manipulation of the class loader, which leads to arbitrary file writing and other code execution impacts. This original exploit targeted webapps that ran on top of Apache Tomcat and used the class loader vulnerability to obtain arbitrary file writing privileges and drop a WebShell in a remotely-accessible location (ex. the webroot) in order to run arbitrary commands. Other exploitation vectors might exist which don't require the web app to run on top of Tomcat.\r\n\r\nThe issue is only exploitable on JDK 9 and later, when the Spring MVC app contains an endpoint that tries to bind request parameters to a non-primitive data type (Java Bean).\r\nFor example - this is a vulnerable endpoint -\r\n```java\r\n@RequestMapping({\"\", \"/\"})\r\n    public String test(SomeJavaClass myclass) {\r\n        ...\r\n    }\r\n```\r\n\r\nAs opposed to - \r\n```java\r\n@RequestMapping({\"\", \"/\"})\r\n    public String test(String mystring) {\r\n        ...\r\n    }\r\n```\r\n\r\nNote that although some advisories and tools regard the base `spring-beans` package to be vulnerable, the existence of this specific package is not enough for the remote exploitation of this vulnerability. This is due to the fact that vulnerable handlers must have the `@RequestMapping` annotation (or an equivalent annotation) and these annotations are available only in the `spring-web` package.",
+          "jfrog_research_severity": "Critical",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector.",
+              "description": "The webapp must expose an endpoint that accepts a Java Bean as one of its arguments, and the attacker must find this vulnerable endpoint.",
+              "is_positive": true
+            },
+            {
+              "name": "The issue has an exploit published"
+            },
+            {
+              "name": "The issue results in a severe impact (such as remote code execution)",
+              "description": "Remote code execution."
+            },
+            {
+              "name": "The prerequisites for exploiting the issue are either extremely common or nonexistent (always exploitable)",
+              "description": "The webapp must be running on top of Apache Tomcat using JDK 9 or later."
+            }
+          ],
+          "remediation": "##### Development mitigations\n\nAdding the following function to your `@RestController` class will mitigate the vulnerability -\r\n```java\r\n@InitBinder\r\npublic void initBinder(WebDataBinder binder) {\r\n\tString[] blackList = {\"class.*\",\"Class.*\",\"*.class.*\",\".*Class.*\"};\r\n\tbinder.setDisallowedFields(blackList);\r\n}\r\n```"
+        }
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-42550",
+            "cvss_v2_score": "8.5",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:M/Au:S/C:C/I:C/A:C",
+            "cvss_v3_score": "6.6",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "summary": "In logback version 1.2.7 and prior versions, an attacker with the required privileges to edit configurations files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers.",
+        "severity": "Medium",
+        "components": {
+          "gav://ch.qos.logback:logback-classic:1.2.3": {
+            "fixed_versions": [
+              "[1.2.8]",
+              "[1.3.0-alpha11]"
+            ],
+            "impact_paths": [
+              [
+               {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://ch.qos.logback:logback-classic:1.2.3",
+                  "full_path": "BOOT-INF/lib/logback-classic-1.2.3.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-192417",
+        "references": [
+          "http://logback.qos.ch/news.html",
+          "https://github.com/cn-panda/logbackRceDemo",
+          "https://jira.qos.ch/browse/LOGBACK-1591"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cvss_v2_score": "4.0",
+            "cvss_v2_vector": "AV:N/AC:L/Au:S/C:N/I:P/A:N",
+            "cvss_v3_score": "5.5",
+            "cvss_v3_vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:L/I:L/A:N"
+          }
+        ],
+        "summary": "logback /system/console/configMgr/org.apache.sling.commons.log.LogManager Logback Config File Field Server-side Request Forgery (SSRF)",
+        "severity": "Medium",
+        "components": {
+          "gav://ch.qos.logback:logback-core:1.2.3": {
+            "fixed_versions": [
+              "[1.2.6]",
+              "[1.3.0-alpha7]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://ch.qos.logback:logback-core:1.2.3",
+                  "full_path": "BOOT-INF/lib/logback-core-1.2.3.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-121270",
+        "references": [
+          "https://jira.qos.ch/browse/LOGBACK-1465"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cvss_v2_score": "4.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:H/Au:N/C:P/I:P/A:N"
+          }
+        ],
+        "summary": "logback SSL Certificate Validation Failure MitM Spoofing",
+        "severity": "Medium",
+        "components": {
+          "gav://ch.qos.logback:logback-core:1.2.3": {
+            "fixed_versions": [
+              "[1.2.7]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://ch.qos.logback:logback-core:1.2.3",
+                  "full_path": "BOOT-INF/lib/logback-core-1.2.3.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-81280",
+        "references": [
+          "https://github.com/qos-ch/logback/pull/305",
+          "https://github.com/qos-ch/logback/pull/305/commits/8e02a0d69fda0953154b3427b577c2bb437e097a",
+          "https://jira.qos.ch/browse/LOGBACK-1574",
+          "https://github.com/qos-ch/logback/commit/626c7733c188f2ad60c1348a493761f60e2d7958"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2022-22950",
+            "cvss_v2_score": "4.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:S/C:N/I:N/A:P",
+            "cvss_v3_score": "6.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+          }
+        ],
+        "summary": "n Spring Framework versions 5.3.0 - 5.3.16 and older unsupported versions, it is possible for a user to provide a specially crafted SpEL expression that may cause a denial of service condition.",
+        "severity": "Medium",
+        "components": {
+          "gav://org.springframework:spring-expression:5.3.7": {
+            "fixed_versions": [
+              "[5.2.20]",
+              "[5.3.17]",
+              "[6.0.0-M3]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-expression:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-expression-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-202922",
+        "references": [
+          "https://tanzu.vmware.com/security/cve-2022-22950"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2019-20916",
+            "cvss_v2_score": "5.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:P/A:N",
+            "cvss_v3_score": "7.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          }
+        ],
+        "summary": "The pip package before 19.2 for Python allows Directory Traversal when a URL is given in an install command, because a Content-Disposition header can have ../ in a filename, as demonstrated by overwriting the /root/.ssh/authorized_keys file. This occurs in _download_http_url in _internal/download.py.",
+        "severity": "High",
+        "components": {
+          "pypi://pip:9.0.3": {
+            "fixed_versions": [
+              "[19.2]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:3096c120105a3b49a4ed8ea474e3fb74dcd21e1f7c032881e678bec9abd13d3f/layer.tar",
+                  "full_path": "fad8031dc5cad8545e2704b5f747d6b082f7826af3fb6b5e55cf108351e313df/layer.tar"
+                },
+                {
+                  "component_id": "pypi://pip:9.0.3",
+                  "full_path": "usr/lib/python3.6/site-packages/pip-9.0.3.dist-info/metadata.json"
+                }
+              ],
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:3096c120105a3b49a4ed8ea474e3fb74dcd21e1f7c032881e678bec9abd13d3f/layer.tar",
+                  "full_path": "fad8031dc5cad8545e2704b5f747d6b082f7826af3fb6b5e55cf108351e313df/layer.tar"
+                },
+                {
+                  "component_id": "pypi://pip:9.0.3",
+                  "full_path": "usr/share/python3-wheels/pip-9.0.3-py2.py3-none-any.whl"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-124981",
+        "references": [
+         "https://github.com/gzpan123/pip/commit/a4c735b14a62f9cb864533808ac63936704f2ace",
+          "https://github.com/pypa/pip/compare/19.1.1...19.2",
+          "https://github.com/pypa/pip/issues/6413",
+          "https://lists.debian.org/debian-lts-announce/2020/09/msg00010.html"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2018-20225",
+            "cvss_v2_score": "6.8",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:M/Au:N/C:P/I:P/A:P",
+            "cvss_v3_score": "7.8",
+            "cvss_v3_vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "summary": "** DISPUTED ** An issue was discovered in pip (all versions) because it installs the version with the highest version number, even if the user had intended to obtain a private package from a private index. This only affects use of the --extra-index-url option, and exploitation requires that the package does not already exist in the public index (and thus the attacker can put the package there with an arbitrary version number). NOTE: it has been reported that this is intended functionality and the user is responsible for using --extra-index-url securely.",
+        "severity": "High",
+        "components": {
+          "pypi://pip:9.0.3": {
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:3096c120105a3b49a4ed8ea474e3fb74dcd21e1f7c032881e678bec9abd13d3f/layer.tar",
+                  "full_path": "fad8031dc5cad8545e2704b5f747d6b082f7826af3fb6b5e55cf108351e313df/layer.tar"
+                },
+                {
+                  "component_id": "pypi://pip:9.0.3",
+                  "full_path": "usr/lib/python3.6/site-packages/pip-9.0.3.dist-info/metadata.json"
+                }
+              ],
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:3096c120105a3b49a4ed8ea474e3fb74dcd21e1f7c032881e678bec9abd13d3f/layer.tar",
+                  "full_path": "fad8031dc5cad8545e2704b5f747d6b082f7826af3fb6b5e55cf108351e313df/layer.tar"
+                },
+                {
+                  "component_id": "pypi://pip:9.0.3",
+                  "full_path": "usr/share/python3-wheels/pip-9.0.3-py2.py3-none-any.whl"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-97724",
+        "references": [
+          "https://bugzilla.redhat.com/show_bug.cgi?id=1835736",
+          "https://cowlicks.website/posts/arbitrary-code-execution-from-pips-extra-index-url.html",
+          "https://pip.pypa.io/en/stable/news/",
+          "https://lists.apache.org/thread.html/rb1adce798445facd032870d644eb39c4baaf9c4a7dd5477d12bb6ab2@%3Cgithub.arrow.apache.org%3E"
+        ],
+        "extended_information": {
+          "short_description": "pip could download private packages from a public PyPI repository leading to code execution",
+          "full_description": "This CVE refers to the possibility of a \"dependency confusion\" attack when using `pip` with the `--extra-index-url` flag. This vulnerability has been disputed by the maintainers of pip as the described behavior is intended (although potentially insecure) and as such there are no plans to fix it. \r\n\r\nIf pip is executed with the `--extra-index-url` when using a private PyPI repository, an attacker could cause pip to download a private package (for example one named `private_package`) by adding a package with the same name (`private_package`) in the public PyPI repository. This would lead to remote code execution as pip will download the public package that could contain malicious code. This dependency confusion attack was [demonstrated in 2021 by Alex Birsan](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).",
+          "jfrog_research_severity": "Medium",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "The issue has been disputed by the vendor",
+              "description": "Pip maintainers, and others such as [RHEL](https://access.redhat.com/security/cve/cve-2018-20225) do not consider this a vulnerability as it is the intended behaviour",
+              "is_positive": true
+            },
+            {
+              "name": "The issue results in a severe impact (such as remote code execution)",
+              "description": "A malicious package can contain arbitrary code, which is by definition a severe code execution impact"
+            },
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector.",
+              "description": "Exploitation requires the pip client to use the `--extra-index-url` flag. The attacker must research and find the names of the \"private packages\" being installed by the victim, and then publish packages with the same name (but containing a malicious payload) to PyPI.",
+              "is_positive": true
+            }
+          ],
+          "remediation": "##### Deployment mitigations\n\nDo not use the `--extra-index-url` flag with pip and consider using version pinning for deployments."
+        }
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2016-1000027",
+            "cvss_v2_score": "7.5",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:P/I:P/A:P",
+            "cvss_v3_score": "9.8",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "summary": "Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE) issue if used for Java deserialization of untrusted data. Depending on how the library is implemented within a product, this issue may or not occur, and authentication may be required. NOTE: the vendor's position is that untrusted data is not an intended use case. The product's behavior will not be changed because some users rely on deserialization of trusted data.",
+        "severity": "Critical",
+        "components": {
+          "gav://org.springframework:spring-web:5.3.7": {
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework:spring-web:5.3.7",
+                  "full_path": "BOOT-INF/lib/spring-web-5.3.7.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-125778",
+        "references": [
+          "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2016-1000027",
+          "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-579669626",
+          "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-582313417",
+          "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-744519525",
+          "https://raw.githubusercontent.com/distributedweaknessfiling/cvelist/master/2016/1000xxx/CVE-2016-1000027.json",
+          "https://security-tracker.debian.org/tracker/CVE-2016-1000027",
+          "https://spring.io/blog/2022/05/11/spring-framework-5-3-20-and-5-2-22-available-now",
+          "https://www.tenable.com/security/research/tra-2016-20"
+        ],
+        "extended_information": {
+          "short_description": "Unsafe deserialization in Spring RemoteInvocationSerializingExporter could lead to remote code execution",
+          "full_description": "Spring-based applications that export service beans as endpoints using classes that extend the [RemoteInvocationSerializingExporter](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/remoting/rmi/RemoteInvocationSerializingExporter.html) class are vulnerable to Java deserialization attacks which could lead to RCE (Remote Code Execution). As of 2016, this vulnerability is still not fixed, as the Pivotal team (the maintainers of the Spring framework) disputed it as a security vulnerability in Spring itself and decided not to issue a fix. Instead, they deprecated `HttpInvokerServiceExporter` and `SimpleHttpInvokerServiceExporter`, the potentially vulnerable exporter classes that extend `RemoteInvocationSerializingExporter` and warned application developers not to use them when exposed to untrusted user input (see \"WARNING\" in the [documentation](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/remoting/httpinvoker/HttpInvokerServiceExporter.html)). Applications that do not use the above classes can safely ignore this vulnerability.",
+          "jfrog_research_severity": "Critical",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector.",
+              "description": "The attacker must find a request that is handled by a class extending `RemoteInvocationSerializingExporter`",
+              "is_positive": true
+            },
+            {
+              "name": "The issue results in a severe impact (such as remote code execution)",
+              "description": "Remote code execution"
+            },
+            {
+              "name": "The issue has an exploit published",
+              "description": "An RMI exploit can be generated by frameworks such as [ysoserial](https://github.com/frohoff/ysoserial/tree/master/src)"
+            },
+            {
+              "name": "The issue has a detailed technical explanation published, that can aid in exploit development",
+              "description": "The original advisory contains a technical writeup"
+            }
+          ],
+          "remediation": "##### Deployment mitigations\n\nDo not use Java serialization for external endpoints (Do not extend the `RemoteInvocationSerializingExporter` class)"
+        }
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-37136",
+            "cvss_v2_score": "5.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:P",
+            "cvss_v3_score": "7.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        ],
+        "summary": "The Bzip2 decompression decoder function doesn't allow setting size restrictions on the decompressed output data (which affects the allocation size used during decompression). All users of Bzip2Decoder are affected. The malicious input can trigger an OOME and so a DoS attack",
+        "severity": "High",
+        "components": {
+          "gav://io.netty:netty-codec:4.1.65.Final": {
+            "fixed_versions": [
+              "[4.1.68.Final]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://io.netty:netty-codec:4.1.65.Final",
+                  "full_path": "BOOT-INF/lib/netty-codec-4.1.65.Final.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-191354",
+        "references": [
+          "https://github.com/netty/netty/security/advisories/GHSA-grg4-wf29-r9vv",
+          "https://lists.apache.org/thread.html/r5e05eba32476c580412f9fbdfc9b8782d5b40558018ac4ac07192a04@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/r5406eaf3b07577d233b9f07cfc8f26e28369e6bab5edfcab41f28abb@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/r75490c61c2cb7b6ae2c81238fd52ae13636c60435abcd732d41531a0@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/r06a145c9bd41a7344da242cef07977b24abe3349161ede948e30913d@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/rd262f59b1586a108e320e5c966feeafbb1b8cdc96965debc7cc10b16@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/rfb2bf8597e53364ccab212fbcbb2a4e9f0a9e1429b1dc08023c6868e@%3Cdev.tinkerpop.apache.org%3E"
+        ],
+        "extended_information": {
+          "short_description": "A resource exhaustion in netty's Bzip2 decoder leads to denial of service",
+          "full_description": "[netty](https://github.com/netty/netty) is a popular client/server framework which enables quick and easy development of network applications such as protocol servers and clients.\r\n\r\nA vulnerability was found in netty's Bzip2 decoder - when using the netty library and accepting arbitrary data streams to decode, netty does not limit the stream in any way.\r\nAn attacker that can submit a big file to decompress, may cause memory exhaustion which will lead to denial of service on the netty daemon process and possibly other processes on the same machine.\r\n\r\nExample code that can trigger the issue -\r\n```java\r\npublic static void main(String[] args) throws Exception {\r\n    Bzip2Decoder decoder = new Bzip2Decoder(); // Create the decompressor\r\n    final ByteBufAllocator allocator = new PooledByteBufAllocator(false);\r\n    FileInputStream file = new FileInputStream(\"C:\\\\temp\\\\100GB.bz2\"); // External input\r\n    int inputChunks = 64 * 1024;\r\n    ByteBuf buf = allocator.heapBuffer(inputChunks);\r\n    ChannelHandlerContext ctx = new StubChannelHandlerContext(allocator);\r\n    while (buf.writeBytes(file, buf.writableBytes()) \u003e= 0) {\r\n        System.out.println(\"Input: \" + buf.capacity());\r\n        decoder.channelRead(ctx, buf); // BUG, No internal resource release!\r\n        buf = allocator.heapBuffer(inputChunks);\r\n        decoder.channelReadComplete(ctx);\r\n}\r\n```",
+          "jfrog_research_severity": "High",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector.",
+              "description": "The attacker would have to determine which remote input propagates into `Bzip2Decoder`",
+              "is_positive": true
+            },
+            {
+              "name": "The issue has an exploit published",
+              "description": "Published exploit demonstrates DoS"
+            },
+            {
+              "name": "The issue has a detailed technical explanation published, that can aid in exploit development"
+            }
+          ]
+        }
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-37137",
+            "cvss_v2_score": "5.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:P",
+            "cvss_v3_score": "7.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        ],
+        "summary": "The Snappy frame decoder function doesn't restrict the chunk length which may lead to excessive memory usage. Beside this it also may buffer reserved skippable chunks until the whole chunk was received which may lead to excessive memory usage as well. This vulnerability can be triggered by supplying malicious input that decompresses to a very big size (via a network stream or a file) or by sending a huge skippable chunk.",
+        "severity": "High",
+        "components": {
+          "gav://io.netty:netty-codec:4.1.65.Final": {
+            "fixed_versions": [
+              "[4.1.68.Final]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://io.netty:netty-codec:4.1.65.Final",
+                  "full_path": "BOOT-INF/lib/netty-codec-4.1.65.Final.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-191353",
+        "references": [
+          "https://github.com/netty/netty/security/advisories/GHSA-9vjp-v76f-g363",
+          "https://lists.apache.org/thread.html/r5e05eba32476c580412f9fbdfc9b8782d5b40558018ac4ac07192a04@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/r5406eaf3b07577d233b9f07cfc8f26e28369e6bab5edfcab41f28abb@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/r75490c61c2cb7b6ae2c81238fd52ae13636c60435abcd732d41531a0@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/r06a145c9bd41a7344da242cef07977b24abe3349161ede948e30913d@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/rd262f59b1586a108e320e5c966feeafbb1b8cdc96965debc7cc10b16@%3Ccommits.druid.apache.org%3E",
+          "https://lists.apache.org/thread.html/rfb2bf8597e53364ccab212fbcbb2a4e9f0a9e1429b1dc08023c6868e@%3Cdev.tinkerpop.apache.org%3E"
+        ],
+        "extended_information": {
+          "short_description": "A resource exhaustion in netty's Snappy decoder leads to denial of service",
+          "full_description": "[netty](https://github.com/netty/netty) is a popular client/server framework which enables quick and easy development of network applications such as protocol servers and clients.\r\n\r\nA vulnerability was found in netty's Snappy decoder - when using the netty library and accepting arbitrary data streams to decode, netty does not limit the stream in any way.\r\nAn attacker that can submit a big file to decompress, may cause memory exhaustion which will lead to denial of service on the netty daemon process and possibly other processes on the same machine.\r\n\r\nExample code that can trigger the issue -\r\n```java\r\npublic static void main(String[] args) throws Exception {\r\n    SnappyFrameDecoder decoder = new SnappyFrameDecoder(); // Create the decompressor\r\n    final ByteBufAllocator allocator = new PooledByteBufAllocator(false);\r\n    FileInputStream file = new FileInputStream(\"C:\\\\temp\\\\100GB.snappy\"); // External input\r\n    int inputChunks = 64 * 1024;\r\n    ByteBuf buf = allocator.heapBuffer(inputChunks);\r\n    ChannelHandlerContext ctx = new StubChannelHandlerContext(allocator);\r\n    while (buf.writeBytes(file, buf.writableBytes()) \u003e= 0) {\r\n        System.out.println(\"Input: \" + buf.capacity());\r\n        decoder.channelRead(ctx, buf); // BUG, No internal resource release!\r\n        buf = allocator.heapBuffer(inputChunks);\r\n        decoder.channelReadComplete(ctx);\r\n}\r\n```",
+          "jfrog_research_severity": "High",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "The issue has an exploit published",
+              "description": "Published exploit demonstrates DoS"
+            },
+            {
+              "name": "The issue has a detailed technical explanation published, that can aid in exploit development"
+            },
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector.",
+              "description": "The attacker would have to determine which remote input propagates into `SnappyFrameDecoder`",
+              "is_positive": true
+            }
+          ]
+        }
+      },
+      {
+        "cves": [
+          {
+            "cvss_v2_score": "10.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:C/I:C/A:C",
+            "cvss_v3_score": "9.8",
+            "cvss_v3_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          }
+        ],
+        "summary": "Netty codec/src/main/java/io/netty/handler/codec/compression/Lz4FrameEncoder.java Lz4FrameEncoder::finishEncode() Function Buffer Overflow",
+        "severity": "Critical",
+        "components": {
+          "gav://io.netty:netty-codec:4.1.65.Final": {
+            "fixed_versions": [
+              "[4.1.66.Final]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://io.netty:netty-codec:4.1.65.Final",
+                  "full_path": "BOOT-INF/lib/netty-codec-4.1.65.Final.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-179837",
+        "references": [
+          "https://netty.io/news/2021/07/16/4-1-66-Final.html",
+          "https://github.com/netty/netty/pull/11429",
+          "https://github.com/netty/netty/commit/194a81ff4f0304d928bbcfd57ff3e961e12ac8d4"
+        ]
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2020-36518",
+            "cvss_v2_score": "5.0",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:L/Au:N/C:N/I:N/A:P",
+            "cvss_v3_score": "7.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        ],
+        "summary": "jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.",
+        "severity": "High",
+        "components": {
+          "gav://com.fasterxml.jackson.core:jackson-databind:2.12.3": {
+            "fixed_versions": [
+              "[2.12.6.1]",
+              "[2.13.2.1]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://com.fasterxml.jackson.core:jackson-databind:2.12.3",
+                  "full_path": "BOOT-INF/lib/jackson-databind-2.12.3.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-199816",
+        "references": [
+          "https://github.com/FasterXML/jackson-databind/issues/2816"
+        ],
+        "extended_information": {
+          "short_description": "A stack exhaustion in jackson-databind can lead to denial of service when deserializing external data as generic objects",
+          "full_description": "[Jackson-databind](https://github.com/FasterXML/jackson-databind) is a streaming API library for Java. One of its components, `ObjectMapper`, is responsible for serialization and deserialization of Java objects.\r\n\r\nIt was discovered that the `UntypedObjectDeserializer` is expensive for deeply nested Objects and Arrays, which quickly leads to massive memory consumption and denial of service.\r\n\r\nTo exploit this issue, an attacker must be able to supply an arbitrary serialized input (a deeply nested object) to the `readValue` API. In addition, the `readValue` API call must map the output to an untyped object such as `Object` or `Map\u003cString, Object\u003e`. \r\n\r\nExample of a vulnerable code snippet -\r\n`objMapper.readValue(userInput, Object.class);`",
+          "jfrog_research_severity": "Medium",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "The prerequisites for exploiting the issue are exteremly unlikely",
+              "description": "It is unlikely that a `readValue` call would map the object to a generic type (ex. `Object`)",
+              "is_positive": true
+            },
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector.",
+              "description": "The attacker must find remote input that propagates into a `ObjectMapper.readValue` call. The `readValue` call must accept an object type of `Object` or `Map\u003cString, Object\u003e`. For example - `objMapper.readValue(userInput, Object.class);`",
+              "is_positive": true
+            },
+            {
+              "name": "The issue has an exploit published",
+              "description": "The fix's tests contain several crashing PoCs"
+            }
+          ]
+        }
+      },
+      {
+        "cves": [
+          {
+            "cvss_v2_score": "7.1",
+            "cvss_v2_vector": "CVSS:2.0/AV:N/AC:M/Au:N/C:N/I:N/A:C",
+            "cvss_v3_score": "7.5",
+            "cvss_v3_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        ],
+        "summary": "FasterXML jackson-databind node/NodeSerialization.java NodeSerialization::readExternal() Function JDK Serialization Memory Exhaustion DoS",
+        "severity": "High",
+        "components": {
+          "gav://com.fasterxml.jackson.core:jackson-databind:2.12.3": {
+            "fixed_versions": [
+              "[2.12.6]",
+              "[2.13.1]",
+              "[2.14.0]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar"
+                },
+                {
+                  "component_id": "generic://sha256:4b0c5b5e5b1c19b655febfb97c9ec995b94f2b3e645fc48bda5a376c6478a749/layer.tar",
+                  "full_path": "20af9a6c7cb738325b585f0d07e96887e9cee464393d0fe57c0746e430dda7d9/layer.tar"
+                },
+                {
+                  "component_id": "generic://sha256:b368a924cdbb3a27fc1cac471234ea98c47f7ffb9f0c5ec8fe2e8002f46cd38e/app.jar",
+                  "full_path": "opt/app-root/app.jar"
+                },
+                {
+                  "component_id": "gav://com.fasterxml.jackson.core:jackson-databind:2.12.3",
+                  "full_path": "BOOT-INF/lib/jackson-databind-2.12.3.jar"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-191477",
+        "references": [
+          "https://github.com/FasterXML/jackson-databind/commit/3ccde7d938fea547e598fdefe9a82cff37fed5cb",
+          "https://github.com/FasterXML/jackson-databind/issues/3328",
+          "https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Change%20Log/",
+          "https://cisecurity.atlassian.net/wiki/spaces/SCFKB/pages/2322989190/CIS-CAT+Pro+Dashboard+vulnerability+updates",
+          "https://issues.apache.org/jira/browse/KAFKA-13658"
+        ]
+      }
+    ],
+    "component_id": "generic://sha256:190907af95a2d227a367822be09b346d59e1046308b68cd421abbab6311da4fb/image.tar",
+    "package_type": "Generic",
+    "status": "completed"
+  }
+]
