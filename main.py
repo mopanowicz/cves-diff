@@ -44,11 +44,11 @@ def read_json_file(json_file_name: str) -> dict:
 
 
 def is_owasp_scan(json_data: dict) -> bool:
-    return "projectInfo" in json_data.keys() and "dependencies" in json_data.keys()
+    return isinstance(json_data, dict) and "projectInfo" in json_data.keys() and "dependencies" in json_data.keys()
 
 
 def is_xray_scan(json_data: dict) -> bool:
-    return "vulnerabilities" in json_data.keys()
+    return isinstance(json_data, dict) and "vulnerabilities" in json_data.keys()
 
 
 def get_package(packages: list, pkg_name: str) -> dict:
