@@ -168,7 +168,7 @@ if __name__ == '__main__':
         print(f'Usage:\n{sys.argv[0]} report1.json report2.json')
         sys.exit(1)
 
-    output_file = "cves-diff.md" if len(sys.argv) < 4 else sys.argv[3]
+    output_file = "cves-diff-out.md" if len(sys.argv) < 4 else sys.argv[3]
 
     with open(output_file, 'w') as f:
         diff_files(sys.argv[1], sys.argv[2], MarkDownRenderer(f))
