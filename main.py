@@ -51,6 +51,11 @@ def is_xray_scan(json_data: dict) -> bool:
     return isinstance(json_data, dict) and "vulnerabilities" in json_data.keys()
 
 
+def is_xray_docker_scan(json_data: list) -> bool:
+    return isinstance(json_data, list) and len(json_data) > 0 \
+           and isinstance(json_data[0], dict) and "vulnerabilities" in json_data[0].keys()
+
+
 def get_package(packages: list, pkg_name: str) -> dict:
     for package in packages:
         if package["name"] == pkg_name:
@@ -112,25 +117,66 @@ def get_xray_packages(json_data: dict):
     return packages
 
 
-def get_packages(json_data: dict):
+def get_component_name(orig_name: str) -> str:
+    name = orig_name
+    if orig_name.startswith("gav://"):
+        component = orig_name.split("/")[2].split(":")
+        name = component[0] + ":" + component[1] +"@"+ component[2]
+    elif orig_name.startswith("pypi://"):
+        component = orig_name.split("/")[2].split(":")
+        name = component[0] + "@" + component[1]
+    return name
+
+
+def get_xray_docker_packages(json_data: list):
     packages = []
-    if is_owasp_scan(json_data):
-        packages = get_owasp_packages(json_data)
-    if is_xray_scan(json_data):
-        packages = get_xray_packages(json_data)
+    scan = json_data[0]
+    if "vulnerabilities" in scan.keys():
+        for vul in scan["vulnerabilities"]:
+            for component_name in vul["components"].keys():
+                package_name = get_component_name(component_name)
+                package = get_package(packages, package_name)
+                if package is None:
+                    package = {"name": package_name, "vulnerabilities": []}
+                    packages.append(package)
+                    packages.sort(key=get_pkg_sort_key)
+                if "cves" in vul.keys():
+                    pkg_vuls = package["vulnerabilities"]
+                    for cve in vul["cves"]:
+                        if "cve" in cve.keys():
+                            cve_id = cve["cve"]
+                            if not has_vul(pkg_vuls, cve_id):
+                                pkg_vuls.append({"name": cve_id})
+                                pkg_vuls.sort(key=get_vul_sort_key)
     return packages
 
 
-def get_file_packages(json_file: dict):
+def get_packages(json_data):
+    packages = []
+    if is_owasp_scan(json_data):
+        print(f'is_owasp_scan')
+        packages = get_owasp_packages(json_data)
+    elif is_xray_scan(json_data):
+        print(f'is_xray_scan')
+        packages = get_xray_packages(json_data)
+    elif is_xray_docker_scan(json_data):
+        print(f'is_xray_docker_scan')
+        packages = get_xray_docker_packages(json_data)
+    else:
+        print(f'unknown data')
+    return packages
+
+
+def get_file_packages(json_file):
     json_data = read_json_file(json_file)
     return get_packages(json_data)
 
 
 def diff_files(json_file_name1: str, json_file_name2: str, report_renderer: ReportRenderer):
-    print(f'\nreport {json_file_name1}\n')
+    print(f'report {json_file_name1}')
     pkgs1 = get_file_packages(json_file_name1)
     print(f'{pkgs1}\n')
-    print(f'\nreport {json_file_name2}\n')
+    print(f'report {json_file_name2}')
     pkgs2 = get_file_packages(json_file_name2)
     print(f'{pkgs2}\n')
 
