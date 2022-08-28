@@ -92,8 +92,9 @@ def get_owasp_packages(json_data: dict):
                     packages.sort(key=get_pkg_sort_key)
                 for vul in dep["vulnerabilities"]:
                     pkg_vuls = package["vulnerabilities"]
-                    if not has_vul(pkg_vuls, vul["name"]):
-                        pkg_vuls.append({"name": vul["name"]})
+                    cve_id = vul["name"]
+                    if len(cve_id) > 0 and not has_vul(pkg_vuls, cve_id):
+                        pkg_vuls.append({"name": cve_id})
                         pkg_vuls.sort(key=get_vul_sort_key)
     return packages
 
@@ -111,7 +112,7 @@ def get_xray_packages(json_data: dict):
             pkg_vuls = package["vulnerabilities"]
             for cve in vul["cves"]:
                 cve_id = cve["id"]
-                if not has_vul(pkg_vuls, cve_id):
+                if len(cve_id) > 0 and not has_vul(pkg_vuls, cve_id):
                     pkg_vuls.append({"name": cve_id})
                     pkg_vuls.sort(key=get_vul_sort_key)
     return packages
@@ -145,7 +146,7 @@ def get_xray_docker_packages(json_data: list):
                     for cve in vul["cves"]:
                         if "cve" in cve.keys():
                             cve_id = cve["cve"]
-                            if not has_vul(pkg_vuls, cve_id):
+                            if len(cve_id) > 0 and not has_vul(pkg_vuls, cve_id):
                                 pkg_vuls.append({"name": cve_id})
                                 pkg_vuls.sort(key=get_vul_sort_key)
     return packages
