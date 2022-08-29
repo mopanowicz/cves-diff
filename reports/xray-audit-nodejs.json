@@ -1,0 +1,118 @@
+{
+  "vulnerabilities": [
+    {
+      "summary": "The package terser before 4.8.1, from 5.0.0 and before 5.14.2 are vulnerable to Regular Expression Denial of Service (ReDoS) due to insecure usage of regular expressions.",
+      "severity": "High",
+      "impactedPackageName": "terser",
+      "impactedPackageVersion": "5.11.0",
+      "impactedPackageType": "npm",
+      "fixedVersions": [
+        "[4.8.1]",
+        "[5.14.2]"
+      ],
+      "components": [
+        {
+          "name": "@angular-devkit/build-angular",
+          "version": "13.3.3"
+        }
+      ],
+      "cves": [
+        {
+          "id": "CVE-2022-25858",
+          "cvssV2": "",
+          "cvssV3": "7.5"
+        }
+      ],
+      "issueId": "XRAY-231376",
+      "references": [
+        "https://github.com/terser/terser/blob/master/lib/compress/evaluate.js%23L135",
+        "https://github.com/terser/terser/commit/a4da7349fdc92c05094f41d33d06d8cd4e90e76b",
+        "https://github.com/terser/terser/commit/d8cc5691be980d663c29cc4d5ce67e852d597012",
+        "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-2949722",
+        "https://snyk.io/vuln/SNYK-JS-TERSER-2806366"
+      ],
+      "impactPaths": [
+        [
+          {
+            "name": "simple-ng",
+            "version": "0.0.0"
+          },
+          {
+            "name": "@angular-devkit/build-angular",
+            "version": "13.3.3"
+          },
+          {
+            "name": "terser",
+            "version": "5.11.0"
+          }
+        ]
+      ],
+      "jfrogResearchInformation": null
+    },
+    {
+      "summary": "JavaScript Big Number (jsbn) index.js Multiple Functions Timing Side-channel Information Disclosure",
+      "severity": "Medium",
+      "impactedPackageName": "jsbn",
+      "impactedPackageVersion": "0.1.1",
+      "impactedPackageType": "npm",
+      "fixedVersions": null,
+      "components": [
+        {
+          "name": "cypress",
+          "version": "9.5.4"
+        }
+      ],
+      "cves": [
+        {
+          "id": "",
+          "cvssV2": "2.6",
+          "cvssV3": "5.9"
+        }
+      ],
+      "issueId": "XRAY-228919",
+      "references": [
+        "https://github.com/andyperlitch/jsbn/issues/43",
+        "https://twitter.com/SoatokDhole/status/1536765180645974016",
+        "https://soatok.blog/2022/06/14/when-soatok-used-bugcrowd/"
+      ],
+      "impactPaths": [
+        [
+          {
+            "name": "simple-ng",
+            "version": "0.0.0"
+          },
+          {
+            "name": "cypress",
+            "version": "9.5.4"
+          },
+          {
+            "name": "@cypress/request",
+            "version": "2.88.10"
+          },
+          {
+            "name": "http-signature",
+            "version": "1.3.6"
+          },
+          {
+            "name": "sshpk",
+            "version": "1.17.0"
+          },
+          {
+            "name": "ecc-jsbn",
+            "version": "0.1.2"
+          },
+          {
+            "name": "jsbn",
+            "version": "0.1.1"
+          }
+        ]
+      ],
+      "jfrogResearchInformation": null
+    }
+  ],
+  "securityViolations": null,
+  "licensesViolations": null,
+  "licenses": null,
+  "operationalRiskViolations": null,
+  "errors": null
+}
