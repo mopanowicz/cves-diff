@@ -56,10 +56,10 @@ def is_xray_docker_scan(json_data: list) -> bool:
            and isinstance(json_data[0], dict) and "vulnerabilities" in json_data[0].keys()
 
 
-def get_package(packages: list, pkg_name: str) -> dict:
-    for package in packages:
-        if package["name"] == pkg_name:
-            return package
+def get_component(components: list, component_name: str) -> dict:
+    for component in components:
+        if component["name"] == component_name:
+            return component
     return None
 
 
@@ -70,52 +70,52 @@ def has_vul(pkg_vuls, vul_name):
     return False
 
 
-def get_vul_sort_key(vul: dict):
-    return vul["name"]
+def get_vulnerability_sort_key(v: dict):
+    return v["name"]
 
 
-def get_pkg_sort_key(pkg: dict):
-    return pkg["name"]
+def get_component_sort_key(c: dict):
+    return c["name"]
 
 
-def get_owasp_packages(json_data: dict):
-    packages = []
-    for dep in json_data["dependencies"]:
-        if "vulnerabilities" in dep.keys():
-            for pkg in dep["packages"]:
-                id = pkg["id"].split("/")
+def get_owasp_components(json_data: dict):
+    components = []
+    for dependency in json_data["dependencies"]:
+        if "vulnerabilities" in dependency.keys():
+            for package in dependency["packages"]:
+                id = package["id"].split("/")
                 package_name = id[1] + ":" + id[2]
-                package = get_package(packages, package_name)
-                if package is None:
-                    package = {"name": package_name, "vulnerabilities": []}
-                    packages.append(package)
-                    packages.sort(key=get_pkg_sort_key)
-                for vul in dep["vulnerabilities"]:
-                    pkg_vuls = package["vulnerabilities"]
+                component = get_component(components, package_name)
+                if component is None:
+                    component = {"name": package_name, "vulnerabilities": []}
+                    components.append(component)
+                    components.sort(key=get_component_sort_key)
+                for vul in dependency["vulnerabilities"]:
+                    component_vulnerabilities = component["vulnerabilities"]
                     cve_id = vul["name"]
-                    if len(cve_id) > 0 and not has_vul(pkg_vuls, cve_id):
-                        pkg_vuls.append({"name": cve_id})
-                        pkg_vuls.sort(key=get_vul_sort_key)
-    return packages
+                    if len(cve_id) > 0 and not has_vul(component_vulnerabilities, cve_id):
+                        component_vulnerabilities.append({"name": cve_id})
+                        component_vulnerabilities.sort(key=get_vulnerability_sort_key)
+    return components
 
 
-def get_xray_packages(json_data: dict):
-    packages = []
+def get_xray_components(json_data: dict):
+    components = []
     for vul in json_data["vulnerabilities"]:
         package_name = vul["impactedPackageName"] + "@" + vul["impactedPackageVersion"]
-        package = get_package(packages, package_name)
-        if package is None:
-            package = {"name": package_name, "vulnerabilities": []}
-            packages.append(package)
-            packages.sort(key=get_pkg_sort_key)
+        component = get_component(components, package_name)
+        if component is None:
+            component = {"name": package_name, "vulnerabilities": []}
+            components.append(component)
+            components.sort(key=get_component_sort_key)
         if "cves" in vul.keys():
-            pkg_vuls = package["vulnerabilities"]
+            component_vulnerabilities = component["vulnerabilities"]
             for cve in vul["cves"]:
                 cve_id = cve["id"]
-                if len(cve_id) > 0 and not has_vul(pkg_vuls, cve_id):
-                    pkg_vuls.append({"name": cve_id})
-                    pkg_vuls.sort(key=get_vul_sort_key)
-    return packages
+                if len(cve_id) > 0 and not has_vul(component_vulnerabilities, cve_id):
+                    component_vulnerabilities.append({"name": cve_id})
+                    component_vulnerabilities.sort(key=get_vulnerability_sort_key)
+    return components
 
 
 def get_component_name(orig_name: str) -> str:
@@ -129,82 +129,82 @@ def get_component_name(orig_name: str) -> str:
     return name
 
 
-def get_xray_docker_packages(json_data: list):
-    packages = []
+def get_xray_docker_components(json_data: list):
+    components = []
     scan = json_data[0]
     if "vulnerabilities" in scan.keys():
-        for vul in scan["vulnerabilities"]:
-            for component_name in vul["components"].keys():
-                package_name = get_component_name(component_name)
-                package = get_package(packages, package_name)
-                if package is None:
-                    package = {"name": package_name, "vulnerabilities": []}
-                    packages.append(package)
-                    packages.sort(key=get_pkg_sort_key)
-                if "cves" in vul.keys():
-                    pkg_vuls = package["vulnerabilities"]
-                    for cve in vul["cves"]:
+        for vulnerability in scan["vulnerabilities"]:
+            for vul_comp_name in vulnerability["components"].keys():
+                component_name = get_component_name(vul_comp_name)
+                component = get_component(components, component_name)
+                if component is None:
+                    component = {"name": component_name, "vulnerabilities": []}
+                    components.append(component)
+                    components.sort(key=get_component_sort_key)
+                if "cves" in vulnerability.keys():
+                    component_vulnerabilities = component["vulnerabilities"]
+                    for cve in vulnerability["cves"]:
                         if "cve" in cve.keys():
                             cve_id = cve["cve"]
-                            if len(cve_id) > 0 and not has_vul(pkg_vuls, cve_id):
-                                pkg_vuls.append({"name": cve_id})
-                                pkg_vuls.sort(key=get_vul_sort_key)
-    return packages
+                            if len(cve_id) > 0 and not has_vul(component_vulnerabilities, cve_id):
+                                component_vulnerabilities.append({"name": cve_id})
+                                component_vulnerabilities.sort(key=get_vulnerability_sort_key)
+    return components
 
 
-def get_packages(json_data):
-    packages = []
+def get_components(json_data):
+    componentss = []
     if is_owasp_scan(json_data):
         print(f'is_owasp_scan')
-        packages = get_owasp_packages(json_data)
+        componentss = get_owasp_components(json_data)
     elif is_xray_scan(json_data):
         print(f'is_xray_scan')
-        packages = get_xray_packages(json_data)
+        componentss = get_xray_components(json_data)
     elif is_xray_docker_scan(json_data):
         print(f'is_xray_docker_scan')
-        packages = get_xray_docker_packages(json_data)
+        componentss = get_xray_docker_components(json_data)
     else:
         print(f'unknown data')
-    return packages
+    return componentss
 
 
-def get_file_packages(json_file):
+def get_file_components(json_file):
     json_data = read_json_file(json_file)
-    return get_packages(json_data)
+    return get_components(json_data)
 
 
 def diff_files(json_file_name1: str, json_file_name2: str, report_renderer: ReportRenderer):
     print(f'report {json_file_name1}')
-    pkgs1 = get_file_packages(json_file_name1)
-    print(f'{pkgs1}\n')
+    comps1 = get_file_components(json_file_name1)
+    print(f'{comps1}\n')
     print(f'report {json_file_name2}')
-    pkgs2 = get_file_packages(json_file_name2)
-    print(f'{pkgs2}\n')
+    comps2 = get_file_components(json_file_name2)
+    print(f'{comps2}\n')
 
     report_renderer.render_header(json_file_name1, json_file_name2)
 
     i1 = 0
     i2 = 0
 
-    while i1 < len(pkgs1):
+    while i1 < len(comps1):
 
-        while i2 < len(pkgs2) and pkgs1[i1]["name"] > pkgs2[i2]["name"]:
-            report_renderer.render_row(None, pkgs2[i2])
+        while i2 < len(comps2) and comps1[i1]["name"] > comps2[i2]["name"]:
+            report_renderer.render_row(None, comps2[i2])
             i2 += 1
 
-        column1 = pkgs1[i1]
+        column1 = comps1[i1]
         column2 = None
 
-        if i2 < len(pkgs2) and pkgs1[i1]["name"] == pkgs2[i2]["name"]:
-            column2 = pkgs2[i2]
+        if i2 < len(comps2) and comps1[i1]["name"] == comps2[i2]["name"]:
+            column2 = comps2[i2]
             i2 += 1
 
         report_renderer.render_row(column1, column2)
 
         i1 += 1
 
-    while i2 < len(pkgs2):
-        report_renderer.render_row(None, pkgs2[i2])
+    while i2 < len(comps2):
+        report_renderer.render_row(None, comps2[i2])
         i2 += 1
 
     report_renderer.render_footer()
